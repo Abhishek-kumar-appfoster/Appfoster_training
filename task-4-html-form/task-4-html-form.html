@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pateint Form</title>
+  </head>
+
+  <body>
+    
+      <form action="">
+
+                         <!-- Primary details div -->
+        <div align="center">
+        <h3>Primary Details</h3>
+        <label for="Medicare_no">Medicare No</label>
+        <input type="text" id="Medicare_no" name="Medicare_no"/>/
+        <input type="text">
+        /Valid till
+        <label for="dateofadmission"></label>
+        <input type="date" id="dateofadmission" name="birthday" />
+        <br />
+        <label for="title">Title</label>
+        <select id="title" name="title">
+          <option value="" disabled selected>None</option>
+          <option value="Mr.">Mr.</option>
+          <option value="Mrs.">Mrs.</option>
+          <option value="Miss">Miss.</option>
+
+          
+        </select>
+        <br>
+        <font size="+1"> Lastname, Firstname, Middlename</font><br>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"> <br>
+        <label for="prefernce-name">Pref.Name</label>
+        <input type="text" id="preference-name" name=""> <br>
+        <label for="dob">DOB</label>
+        <input type="date" id="dob" name="dob"><br>
+        <label for="sex">Sex</label>
+        <input type="radio" id="sex" name="sex" value="male">
+        <label for="sex">Male</label>
+        <input type="radio" id="sex" name="sex" value="female">
+        <label for="sex">female</label><br>
+        <label for="Family-name">Family Name</label>
+        <input type="text" id="Family-name">
+      </div>
+      <br>
+      <br>
+      <br>
+      <div align="center">
+        <h3>Contact Details</h3>
+         <font size="+1">Home &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;     Work</font><br>
+        
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required> <br>
+        <font size="+1">Mobile &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;     Fax</font><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required> <br>
+        
+        <font size="+1">Next of kin  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; Next of kin Ph:</font><br>
+        <input type="text">
+        <input type="tel"> <br>
+        <label for="emer-no">Emergency No.</label>
+        <input type="tel" id="emer-no" name="Emergency" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required> <br>
+        <label for="email"><a href="mailto:abhishek.kumar@appfoster.com"> Email:</a> </label>
+        <input type="email" id="email" name="email">
+
+
+
+      </div>
+      <br>
+      <br>
+      <br>
+                        <!-- Contact details div -->
+      <div align="center">
+        <h3>Address details</h3> 
+        <font size="+1">Residential details</font> <br>
+        <label for="address-1">Address 1</label>
+        <input type="text" id="address-1"> <br>
+        <label for="address-2">Address 2</label>
+        <input type="text" id="address-2"><br>
+        <label for="suburb">Suburb</label>
+        <input type="text" id="suburb"> 
+        <label for="State">State</label>
+        <select id="State" name="State">
+          <option value="" disabled selected>Select</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Andhra Pradesh">Andhra Pradesh.</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <br>
+         </select>
+         <br>
+         <label for="Postal-Code">Postal Code</label>
+         <input type="text" id="Postal-Code" pattern="[0-9]{6}">
+         <label for="Country">Country</label>
+         <input type="text" id="Country"> <br>
+         <h4 >Single address</h4>
+         <label for="single-add">Are Mailing address and Residential address same?</label>
+         <input type="checkbox" id="single-add"> <br>
+          <h3>Mailing Address</h3>
+          <label for="address-1">Address 1</label>
+        <input type="text" id="address-1"> <br>
+        <label for="address-2">Address 2</label>
+        <input type="text" id="address-2"><br>
+        <label for="suburb">Suburb</label>
+        <input type="text" id="suburb"> 
+        <label for="State">State</label>
+        <select id="State" name="State">
+          <option value="" disabled selected>Select</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Andhra Pradesh">Andhra Pradesh.</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+         
+         </select>
+         <br>
+         <label for="Postal-Code">Postal Code</label>
+         <input type="text" id="Postal-Code" pattern="[0-9]{6}">
+         <label for="Country">Country</label>
+         <input type="text" id="Country"> <br>
+      </div>
+      <br><br><br>
+
+      <div align="center">
+        <label for="IHI-No">IHI Number   80036</label>
+        <input type="text" id="IHI-No"> <br>
+        <label for="Num-Status">Number Status</label>
+        <input type="text" id="Num-Status"><br>
+        <label for="Record-Status">Record Status</label>
+        <input type="text" id="Record-Status"> <br>
+        <label for="Last-Updated">Last Updated</label>
+        <input type="text" id="Last-updated"><br> <br>
+
+        <button type="submit"  value="Submit">Submit</button>
+        <button type="reset">Clear</button>
+
+
+      </div>
+      </form>
+    
+     
+    
+
+  </body>
+</html>
