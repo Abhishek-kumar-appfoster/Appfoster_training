@@ -1,0 +1,16 @@
+   21  ls
+   22  touch file.txt
+   23  code file.txt
+   24  cat file.txt
+   25  ls -l
+   26  ls
+   27  mkdir task-9
+   28  ls
+   29  rmdir task-9
+   30  ls
+   31  mv file.txt second.txt
+   32  ls
+   33  cp second.txt third.txt
+   34  ls
+   35  wc -l second.txt
+   36  ls | wc -l
