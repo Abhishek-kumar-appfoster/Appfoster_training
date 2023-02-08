@@ -1,12 +1,29 @@
 const splitBtn = document.getElementById("splitBtn");
 splitBtn.addEventListener("click", split);
 
+
 function split() {
-    const number = document.getElementById("number").value;
-    const splits = document.getElementById("splits").value;
+    const number = parseInt(document.getElementById("number").value);
+    const splits = parseInt(document.getElementById("splits").value);
     const container = document.getElementById("container");
+    console.log(typeof (number));
+    if (!Number.isInteger(number) || !Number.isInteger(splits)) {
+        document.getElementById("error").innerHTML = "Error: " + "Enter only integer value.";
+        return;
+    }
+
 
     container.innerHTML = "";
+
+    if (splits > number) {
+        document.getElementById("error").innerHTML = "Error: " + "Splits should not be grater than Number";
+        return;
+    }
+    if (splits <= 0) {
+        document.getElementById("error").innerHTML = "Error: " + "Splits should be a positive Number";
+        return;
+    }
+
 
     let remaining = number;
     for (let i = 0; i < splits; i++) {
@@ -19,7 +36,8 @@ function split() {
         container.appendChild(div);
         remaining -= amount;
     }
-  
+
+
 }
 
 
