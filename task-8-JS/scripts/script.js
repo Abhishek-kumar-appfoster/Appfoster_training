@@ -6,14 +6,13 @@ function split() {
     const number = parseInt(document.getElementById("number").value);
     const splits = parseInt(document.getElementById("splits").value);
     const container = document.getElementById("container");
-    console.log(typeof (number));
+
+    container.innerHTML = "";
+    document.getElementById("error").innerHTML = "";
     if (!Number.isInteger(number) || !Number.isInteger(splits)) {
         document.getElementById("error").innerHTML = "Error: " + "Enter only integer value.";
         return;
     }
-
-
-    container.innerHTML = "";
 
     if (splits > number) {
         document.getElementById("error").innerHTML = "Error: " + "Splits should not be grater than Number";
