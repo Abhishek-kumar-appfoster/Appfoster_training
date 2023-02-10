@@ -23,26 +23,26 @@ showUsers();
 
 function displayDetails(id) {
     fetch("https://gorest.co.in/public/v2/users/" + id)
-    .then((data) => {
-        return data.json();
-        console.log(data);
-    })
-    .then((objectData) => {
-        console.log(objectData);
-        document.getElementById("name").innerHTML = objectData.name;
-       
-    document.getElementById("email").innerHTML = objectData.email;
-    document.getElementById("gender").innerHTML = objectData.gender;
-        
-    })
-    .catch((err) => {
-        // console.log(data);
-         console.log(err);
-        console.log("error occured!");
-    })
-    .finally(console.log("done fine"));
+        .then((data) => {
+            return data.json();
+            console.log(data);
+        })
+        .then((objectData) => {
+            console.log(objectData);
+            document.getElementById("name").innerHTML = objectData.name;
+
+            document.getElementById("email").innerHTML = objectData.email;
+            document.getElementById("gender").innerHTML = objectData.gender;
+
+        })
+        .catch((err) => {
+            // console.log(data);
+            console.log(err);
+            console.log("error occured!");
+        })
+        .finally(console.log("done fine"));
 }
-    
+
 
 
 
