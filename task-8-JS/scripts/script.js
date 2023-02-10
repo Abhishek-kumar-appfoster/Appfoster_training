@@ -3,18 +3,19 @@ splitBtn.addEventListener("click", split);
 
 
 function split() {
-    const number = parseInt(document.getElementById("number").value);
-    const splits = parseInt(document.getElementById("splits").value);
+    const number = document.getElementById("number").value;
+    const splits = document.getElementById("splits").value;
     const container = document.getElementById("container");
 
     container.innerHTML = "";
     document.getElementById("error").innerHTML = "";
-    if (!Number.isInteger(number) || !Number.isInteger(splits)) {
+    if (!Number.isInteger(Number(number)) || !Number.isInteger(Number(splits))) {
         document.getElementById("error").innerHTML = "Error: " + "Enter only integer value.";
         return;
     }
-
-    if (splits > number) {
+    let num = parseInt(number);
+    let parts = parseInt(splits);
+    if (parts > num) {
         document.getElementById("error").innerHTML = "Error: " + "Splits should not be grater than Number";
         return;
     }
