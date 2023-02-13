@@ -45,30 +45,30 @@ function displayDetails(id) {
                     //    post-details
 
 
-function displayJobs(id){
-    fetch("https://gorest.co.in/public/v2/users/${id}/posts")
-    .then((data) => {
-        return data.json();
+// function displayJobs(id){
+//     fetch("https://gorest.co.in/public/v2/users/${id}/posts")
+//     .then((data) => {
+//         return data.json();
         
-    })
-    .then((objectData) => {
-        console.log(objectData);
-        document.getElementById("name").innerHTML = objectData.name;
+//     })
+//     .then((objectData) => {
+//         console.log(objectData);
+//         document.getElementById("name").innerHTML = objectData.name;
 
-        document.getElementById("email").innerHTML = objectData.email;
-        document.getElementById("gender").innerHTML = objectData.gender;
+//         document.getElementById("email").innerHTML = objectData.email;
+//         document.getElementById("gender").innerHTML = objectData.gender;
 
-    })
-    .catch((err) => {
-        // console.log(data);
-        console.log(err);
-        console.log("error occured!");
-    })
-    .finally(console.log("done fine"));
+//     })
+//     .catch((err) => {
+//         // console.log(data);
+//         console.log(err);
+//         console.log("error occured!");
+//     })
+//     .finally(console.log("done fine"));
 
    
-}
-displayJobs(359769);
+// }
+// displayJobs(359769);
 
 
 
