@@ -29,8 +29,8 @@ db.projects=require("./project.model.js")(sequelize,Sequelize);
 
 //creating realtion
 
-// db.users.hasOne(db.projects, {foreignKey:userid});
-// db.projects.belongsTo(db.users,{foreignKey:userid});
+db.users.hasMany(db.projects, { foreignKey: 'userid', as: 'projects' });
+db.projects.belongsTo(db.users, { foreignKey: 'userid', as: 'user' });
 
 
 module.exports = db;

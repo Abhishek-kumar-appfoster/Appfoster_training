@@ -134,3 +134,18 @@ exports.deleteAll = (req, res) => {
         });
       });
   };
+  // Find all Projects belonging to a user with the specified id
+exports.findAllByUser = (req, res) => {
+    const userId = req.params.userId;
+  
+    Project.findAll({ where: { userId: userId } })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || `Error retrieving Projects for user with id=${userId}`
+        });
+      });
+  };
