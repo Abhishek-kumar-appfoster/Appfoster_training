@@ -139,8 +139,8 @@ exports.deleteAll = (req, res) => {
   };
   
 
-  //creating link
-  var oneToOne = async(req,res)=>{
-      let data=await users.findAll({});
-      res.status(200).json(data);
-  }
+//   //creating link
+//   var oneToOne = async(req,res)=>{
+//       let data=await users.findAll({});
+//       res.status(200).json(data);
+//   }
