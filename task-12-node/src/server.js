@@ -43,6 +43,8 @@ require("./app/routes/user.routes")(app);
 
 require("./app/routes/project.route")(app);
 
+require("./app/routes/ticket.route")(app);
+
 
 
 // get all projects for a given user

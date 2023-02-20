@@ -15,7 +15,8 @@ exports.create = (req, res) => {
   // Create a Project
   const project = {
     name: req.body.name,
-    userid:req.body.userid
+    userid:req.body.userid,
+    description:req.body.description
     
   };
 
