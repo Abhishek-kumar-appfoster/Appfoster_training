@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 use App\Models\Employee;
 
@@ -16,15 +17,17 @@ class EmployeesTableSeeder extends Seeder
      */
     public function run()
     {
-        Employee::create(
-            [
-                'name' => 'Abhishek kumar',
-                'email' => 'Abhishek@gmail.com',
-                'address' => 'Moradbad,UP'
 
+        $faker = Faker::create();
+        for ($i = 0; $i < 50; $i++) {
 
+            $employee = new Employee;
+            $employee->name = $faker->name;
+            $employee->email = $faker->email;
+            $employee->address = $faker->address;
 
-            ]
-        );
+            $employee->save();
+        }
+
     }
 }
