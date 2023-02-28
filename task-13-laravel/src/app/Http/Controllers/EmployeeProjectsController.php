@@ -13,17 +13,29 @@ class EmployeeProjectsController extends Controller
 {
     public function index($id)
     {
-        $employee = Employee::find($id);       
+        $employee = Employee::find($id);
         $projects = $employee->projects;
         return response()->json($projects);
-        
+
     }
 
-    public function store(Request $request,$employee_id)
+    public function show($employeeId, $projectId)
+    {
+        $project = Project::where('employee_id', $employeeId)
+            ->where('id', $projectId)
+            ->first();
+        if ($project) {
+            return response()->json($project);
+        } else {
+            return response()->json('Project not found for this employee', 404);
+        }
+    }
+
+    public function store(Request $request, $employee_id)
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'description' => 'nullable', 
+            'description' => 'nullable',
         ]);
         $project = new Project($validatedData);
         $project->employee_id = $employee_id;
@@ -32,34 +44,34 @@ class EmployeeProjectsController extends Controller
     }
 
     public function update(Request $request, $employeeId, $projectId)
-{
-    $project = Project::where('employee_id', $employeeId)
-                      ->where('id', $projectId)
-                      ->first();
-    if ($project) {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => 'nullable',
-        ]);
+    {
+        $project = Project::where('employee_id', $employeeId)
+            ->where('id', $projectId)
+            ->first();
+        if ($project) {
+            $validatedData = $request->validate([
+                'name' => 'required',
+                'description' => 'nullable',
+            ]);
 
-        $project->update($validatedData);
+            $project->update($validatedData);
 
-        return response()->json($project);
-    } else {
-        return response()->json('Project not found for this employee', 404);
+            return response()->json($project);
+        } else {
+            return response()->json('Project not found for this employee', 404);
+        }
     }
-}
-public function destroy($employeeId, $projectId)
-{
-    $project = Project::where('employee_id', $employeeId)
-                      ->where('id', $projectId)
-                      ->first();
-    if ($project) {
-        $project->delete();
+    public function destroy($employeeId, $projectId)
+    {
+        $project = Project::where('employee_id', $employeeId)
+            ->where('id', $projectId)
+            ->first();
+        if ($project) {
+            $project->delete();
 
-        return response()->json('Project deleted');
-    } else {
-        return response()->json('Project not found for this employee', 404);
+            return response()->json('Project deleted');
+        } else {
+            return response()->json('Project not found for this employee', 404);
+        }
     }
-}
 }

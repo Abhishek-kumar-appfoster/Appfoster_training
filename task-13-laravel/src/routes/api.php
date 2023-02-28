@@ -21,7 +21,7 @@ use App\Http\Controllers\EmployeeProjectsController;
 
 
 
-
+// defining middleware for authenticating http requestes
 Route::group(['middleware' => ['auth.basic']], function () {
    
     Route::group(['prefix' => 'employees'], function () {
@@ -29,16 +29,12 @@ Route::group(['middleware' => ['auth.basic']], function () {
         Route::apiResource('{employee_id}/projects',EmployeeProjectsController::class);
     });
     Route::apiResource('employees', EmployeeController::class);
+    //endpoints for the realtionship
+Route::apiResource('/employees/{employeeId}/projects/{projectId}',EmployeeProjectsController::class);
 });
 
-Route::put('/employees/{employeeId}/projects/{projectId}', 'EmployeeProjectsController@update');
-Route::delete('/employees/{employeeId}/projects/{projectId}', 'EmployeeProjectsController@destroy');
 
 
-
-
-
-//
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
