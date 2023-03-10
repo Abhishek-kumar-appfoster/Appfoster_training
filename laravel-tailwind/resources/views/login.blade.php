@@ -6,207 +6,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   @vite('resources/css/app.css')
 </head>
 
 <body>
   <!-- navbar -->
-  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-      <a href="/" class="flex items-center">
-        <img src="{{ asset('images/logo.svg') }}" alt="logo" />
-      </a>
+  <nav class="mb-15">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 md:mt-5">
+      <div class="flex justify-between h-16">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="/" class="flex items-center">
+            <img src="{{ asset('images/logo.svg') }}" alt="logo" />
+          </a>
+        </div>
+        <div class="-mr-2 flex items-center sm:hidden">
+          <button type="button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+            aria-label="Main menu" aria-expanded="false" id="main-menu">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="hidden sm:flex sm:items-center sm:ml-6">
+          <div class="mr-10">
+            <a href="#"
+              class="px-3 py-2 rounded-md text-sm font-medium text-dark  focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Home</a>
+            <a href="#"
+              class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">About</a>
+            <a href="#"
+              class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Contact</a>
+          </div>
+          <a href="/login">
+            <button type="button"
+              class=" hover:bg-blue-800 focus:ring-4 focus:outline-none border-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+              Log in
+            </button>
+          </a>
+          <a href="/login">
+            <button type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+              Sign Up
+            </button>
+          </a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-dark ">Home</a>
+        <a href="#"
+          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">About</a>
+        <a href="#"
+          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Contact</a>
+        <hr>
+        <a href="/login">
+          <button type="button"
+            class="text-dark hover:bg-blue-800 focus:ring-4  border-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+            Log in
+          </button>
+        </a>
+        <a href="/login">
+          <button type="button"
+            class="mt-1 block px-3 py-2 rounded-md text-base border-2 bg-blue-700 font-medium text-dark hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 ">
+            Sign Up
+          </button>
+        </a>
+      </div>
     </div>
   </nav>
 
+  <!-- component -->
+  <div class="bg-grey-lighter min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <h1 class="mb-8 text-3xl text-center">Log In</h1>
+        <form action="{{route('login-user')}}" method="post">
+          @if(Session::has('success'))
+          <div>{{Session::get('success')}}</div>
+          @endif
+          @if(Session::has('fail'))
+          <div>{{Session::get('fail')}}</div>
+          @endif
 
-<!-- 
-  <section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> Create an account </h1>
-          <form class="space-y-4 md:space-y-6" action="#">
-            <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-              <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
-            </div>
-            <div>
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-              <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-            </div>
-            <div>
-              <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-              <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-            </div>
-            <div class="flex items-start">
-              <div class="flex items-center h-5">
-                <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
-              </div>
-              <div class="ml-3 text-sm">
-                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
-              </div>
-            </div>
-            <button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
-            <p class="text-sm font-light text-gray-500 dark:text-gray-400"> Already have an account? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500" id="login-btn">Login here</a> </p>
-          </form>
+          @csrf
+        
+          <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="email"
+            placeholder="Email" value="{{old('email')}}" />
+            <span>@error('email') {{$message}} @enderror</span>
+
+          <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="password"
+            placeholder="Password" />
+            <span>@error('password') {{$message}} @enderror</span>
+
+          <button type="submit"
+            class="w-full text-center py-3 rounded bg-blue-400 text-white hover:bg-green-dark focus:outline-none my-1">Log In</button>
+        </form>
+        <div class="text-center text-sm text-grey-dark mt-4">
+          By signing up, you agree to the
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Terms of Service
+          </a> and
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Privacy Policy
+          </a>
         </div>
       </div>
-    </div>
-  </section> -->
- 
-  <section class="pt-36 pb-32">
-    <div class="container container-fluid flex justify-center mx-20">
-      <div
-        class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-        <div
-          class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-          <img
-            src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="w-full"
-            alt="Sample image" />
-        </div>
-        <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-          <form>
-            <div
-              class="flex flex-row items-center justify-center lg:justify-start">
-              <p class="mb-0 mr-4 text-lg">Sign in with</p>
-              <button
-                type="button"
-                data-te-ripple-init
-                data-te-ripple-color="light"
-                class="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
-                <!-- Facebook -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mx-auto h-3.5 w-3.5 fill-blue-800"
-                  fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                </svg>
-              </button>
-  
-              <button
-                type="button"
-                data-te-ripple-init
-                data-te-ripple-color="light"
-                class="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
-                <!-- Twitter -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mx-auto h-3.5 w-3.5 fill-blue-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </button>
-  
-              <button
-                type="button"
-                data-te-ripple-init
-                data-te-ripple-color="light"
-                class="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
-                <!-- Linkedin -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mx-auto h-3.5 w-3.5 fill-blue-800"
-                  fill="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                </svg>
-              </button>
-            </div>
-  
-            <div
-              class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-              <p
-                class="mx-4 mb-0 text-center font-semibold dark:text-white">
-                Or
-              </p>
-            </div>
-  
-            <!-- Email input -->
-            <div class="relative mb-6" data-te-input-wrapper-init>
-              <input
-                type="text"
-                class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                id="exampleFormControlInput2"
-                placeholder="Email address" />
-              <label
-                for="exampleFormControlInput2"
-                class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                >Email address
-              </label>
-            </div>
-  
-            <!-- Password input -->
-            <div class="relative mb-6" data-te-input-wrapper-init>
-              <input
-                type="password"
-                class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                id="exampleFormControlInput22"
-                placeholder="Password" />
-              <label
-                for="exampleFormControlInput22"
-                class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                >Password
-              </label>
-            </div>
-  
-            <div class="mb-6 flex items-center justify-between">
-              <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-                <input
-                  class="relative float-left mt-[0.15rem] mr-[6px] -ml-[1.5rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-[rgba(0,0,0,0.25)] bg-white before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-blue-600 checked:before:opacity-[0.16] checked:after:absolute checked:after:ml-[0.25rem] checked:after:-mt-px checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:bg-white focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:ml-[0.25rem] checked:focus:after:-mt-px checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-t-0 checked:focus:after:border-l-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent"
-                  type="checkbox"
-                  value=""
-                  id="exampleCheck2" />
-                <label
-                  class="inline-block pl-[0.15rem] hover:cursor-pointer"
-                  for="exampleCheck2">
-                  Remember me
-                </label>
-              </div>
-              <a href="#!">Forgot password?</a>
-            </div>
-  
-            <div class="text-center lg:text-left">
-              <button
-                type="button"
-                class="inline-block rounded bg-blue-800 px-7 pt-3 pb-2.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                data-te-ripple-init
-                data-te-ripple-color="light">
-                Login
-              </button>
-              <p class="mt-2 mb-0 pt-1 text-sm font-semibold">
-                Don't have an account?
-                <a
-                  href="#!"
-                  class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
-                  >Register</a
-                >
-              </p>
-            </div>
-          </form>
-        </div>
+
+      <div class="text-grey-dark mt-6">
+        Don't have an account?
+        <a class="no-underline border-b border-blue text-blue" href="../register/">
+          Register here!
+
+        </a>.
       </div>
     </div>
-  </section>
-  
+  </div>
 
 
-
-  
-  
-  
-
+  <!-- footer -->
 
   <!-- ====== Footer Section Start -->
-  <footer class="relative z-10 bg-white pt-10 pb-10 lg:pt-[100px] lg:pb-15">
+  <footer class="relative z-10 bg-white pt-15 pb-10 lg:pt-[120px] lg:pb-20">
     <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap">
         <div class="w-full px-4 sm:w-2/3 lg:w-3/12">
@@ -390,14 +317,15 @@
 
 
   <script>
-    function toggleForm() {
-        var loginForm = document.forms[0];
-        var signUpForm = document.forms[1];
-        loginForm.classList.toggle('hidden');
-        signUpForm.classList.toggle('hidden');
-    }
-</script>
-<script src="{{ asset('js/login.js') }}"></script>
+    var button = document.getElementById('main-menu');
+    var menu = document.getElementById('mobile-menu');
+
+    button.addEventListener('click', function () {
+      var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      button.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 

@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   @vite('resources/css/app.css')
 </head>
 
@@ -22,110 +24,117 @@
           </a>
         </div>
         <div class="-mr-2 flex items-center sm:hidden">
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu">
+          <button type="button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+            aria-label="Main menu" aria-expanded="false" id="main-menu">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
         </div>
         <div class="hidden sm:flex sm:items-center sm:ml-6">
-       <div class="mr-10">
-        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-dark  focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Home</a>
-        <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">About</a>
-        <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Contact</a>
-       </div>
+          <div class="mr-10">
+            <a href="#"
+              class="px-3 py-2 rounded-md text-sm font-medium text-dark  focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Home</a>
+            <a href="#"
+              class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">About</a>
+            <a href="#"
+              class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 md:text-xl">Contact</a>
+          </div>
           <a href="/login">
             <button type="button"
-            class=" hover:bg-blue-800 focus:ring-4 focus:outline-none border-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
-            Log in
-          </button>
-        </a>
-          <a href="/login">
-            <button type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
-            Sign Up
-          </button>
+              class=" hover:bg-blue-800 focus:ring-4 focus:outline-none border-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+              Log in
+            </button>
           </a>
-          
-          
+          <a href="/login">
+            <button type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+              Sign Up
+            </button>
+          </a>
+
+
         </div>
       </div>
     </div>
     <div class="sm:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3">
         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-dark ">Home</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">About</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Contact</a>
+        <a href="#"
+          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">About</a>
+        <a href="#"
+          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-dark  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Contact</a>
         <hr>
         <a href="/login">
           <button type="button"
-          class="text-dark hover:bg-blue-800 focus:ring-4  border-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
-          Log in
-        </button>
-      </a>
+            class="text-dark hover:bg-blue-800 focus:ring-4  border-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 ">
+            Log in
+          </button>
+        </a>
         <a href="/login">
           <button type="button"
-          class="mt-1 block px-3 py-2 rounded-md text-base border-2 bg-blue-700 font-medium text-dark hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 ">
-          Sign Up
-        </button>
+            class="mt-1 block px-3 py-2 rounded-md text-base border-2 bg-blue-700 font-medium text-dark hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 ">
+            Sign Up
+          </button>
         </a>
       </div>
     </div>
   </nav>
-  
+
   <!-- component -->
-<div class="bg-grey-lighter min-h-screen flex flex-col">
+  <div class="bg-grey-lighter min-h-screen flex flex-col">
     <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-            <input 
-                type="text"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="fullname"
-                placeholder="Full Name" />
+      <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+        <form action="{{route('register-user')}}" method="post">
+          @if(Session::has('success'))
+          <div>{{Session::get('success')}}</div>
+          @endif
+          @if(Session::has('fail'))
+          <div>{{Session::get('fail')}}</div>
+          @endif
 
-            <input 
-                type="text"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
-                placeholder="Email" />
+          @csrf
+          <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="name"
+            placeholder="Full Name" value="{{old('name')}}" />
+            <span>@error('name') {{$message}} @enderror</span>
 
-            <input 
-                type="password"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="password"
-                placeholder="Password" />
-            <input 
-                type="password"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="confirm_password"
-                placeholder="Confirm Password" />
+          <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="email"
+            placeholder="Email" value="{{old('email')}}" />
+            <span>@error('email') {{$message}} @enderror</span>
 
-            <button
-                type="submit"
-                class="w-full text-center py-3 rounded bg-blue-400 text-white hover:bg-green-dark focus:outline-none my-1"
-            >Create Account</button>
+          <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="password"
+            placeholder="Password" />
+            <span>@error('password') {{$message}} @enderror</span>
+          <!-- <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="confirm_password"
+            placeholder="Confirm Password" /> -->
 
-            <div class="text-center text-sm text-grey-dark mt-4">
-                By signing up, you agree to the 
-                <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                    Terms of Service
-                </a> and 
-                <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                    Privacy Policy
-                </a>
-            </div>
+          <button type="submit"
+            class="w-full text-center py-3 rounded bg-blue-400 text-white hover:bg-green-dark focus:outline-none my-1">Create
+            Account</button>
+        </form>
+        <div class="text-center text-sm text-grey-dark mt-4">
+          By signing up, you agree to the
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Terms of Service
+          </a> and
+          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+            Privacy Policy
+          </a>
         </div>
+      </div>
 
-        <div class="text-grey-dark mt-6">
-            Already have an account? 
-            <a class="no-underline border-b border-blue text-blue" href="../login/">
-                Log in
-            </a>.
-        </div>
+      <div class="text-grey-dark mt-6">
+        Already have an account?
+        <a class="no-underline border-b border-blue text-blue" href="../login/">
+          Log in
+
+        </a>.
+      </div>
     </div>
-</div>
- 
+  </div>
+
 
   <!-- footer -->
 
@@ -316,8 +325,8 @@
   <script>
     var button = document.getElementById('main-menu');
     var menu = document.getElementById('mobile-menu');
-  
-    button.addEventListener('click', function() {
+
+    button.addEventListener('click', function () {
       var expanded = this.getAttribute('aria-expanded') === 'true' || false;
       button.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('hidden');
